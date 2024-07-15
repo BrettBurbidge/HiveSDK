@@ -37,7 +37,9 @@ namespace GreenPowerCheck
         {
             Console.WriteLine("Green Power Monitor.");
 
-           // Timer timer = new Timer(TimerCallback, null, 0, 10000);
+            Timer timer = new Timer(TimerCallback, null, 0, 10000);
+
+            Thread.Sleep(Timeout.Infinite);
         }
     }
 }
