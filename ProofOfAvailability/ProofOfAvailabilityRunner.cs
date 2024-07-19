@@ -1,26 +1,25 @@
 ﻿using Node.SDK;
-using System.Runtime.CompilerServices;
 
-namespace GreenPowerCheck
+namespace ProofOfAvailability
 {
-    public class PowerMonitor : IPlugin
+    public class ProofOfAvailabilityRunner : IPlugin
     {
-        public string Name => "Green Power Monitor";
+        public string Name => "Proof Of Availability";
 
-        public string Description => "Monitors the home power output and reports it back to the main server.";
+        public string Description => "Pings a time series database to proof availability";
 
         public string Version => "1.0.0";
 
         private void TimerCallback(object state)
         {
-          Log($"{this.Name} triggered");
+            Log($"{this.Name} triggered");
         }
 
         public void OnWorkToDo(WorkEventArgs e)
         {
             try
             {
-               Log($"GreenPowerCheck Plugin received work to complete!");
+                Log($"{this.Name} Plugin received work to complete!");
                 if (e.NodeAction != null)
                 {
                     Log($"Task to complete is {e.NodeAction.Name} received work to complete!");
@@ -37,17 +36,25 @@ namespace GreenPowerCheck
 
         public void Initialize()
         {
-            Log("Green Power Monitor starting...");
 
-           // Timer timer = new Timer(TimerCallback, null, 0, 10000);
+            try
+            {
+                Log($"{this.Name} Plugin starting...");
+
+                Timer timer = new Timer(TimerCallback, null, 0, 10000);
+            } catch (Exception ex)
+            {
+                Log($"Error running plugin: {ex.Message}");
+            }
+
 
             //Do NOT BLOCK THIS THREAD.
-            Thread.Sleep(Timeout.Infinite);
+            //Thread.Sleep(Timeout.Infinite);
         }
 
         private void Log(string message)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"{message}");
             Console.ResetColor();
         }

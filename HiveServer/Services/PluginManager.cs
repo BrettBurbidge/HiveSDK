@@ -3,6 +3,7 @@ using HiveServer.SDK;
 
 namespace HiveServer.Services
 {
+    //Not finished with this. We want this to load the Server side plugins
     public class PluginManager
     {
         public List<IHiveServerPlugin> Plugins { get; private set; } = new List<IHiveServerPlugin>();

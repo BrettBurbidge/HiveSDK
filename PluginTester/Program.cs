@@ -7,7 +7,8 @@
             GreenPowerCheck.PowerMonitor monitor = new GreenPowerCheck.PowerMonitor();
             Console.WriteLine($"testing {monitor.Name}");
             monitor.Initialize();
-            monitor.OnWorkToDo(null, new Node.SDK.WorkEventArgs() { NodeAction = new Node.SDK.NodeAction() { Name = "test action" } });
+            monitor.OnWorkToDo(new Node.SDK.WorkEventArgs() { NodeAction = new Node.SDK.NodeAction() { Name = "test action" } });
+            monitor.Initialize();
         }
     }
 }

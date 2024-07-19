@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NodeShell", "NodeShell\NodeShell.csproj", "{E3BE9B9F-B861-4445-80AD-C822FA55B908}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Node.SDK", "Node.SDK\Node.SDK.csproj", "{12B0157F-9999-4C8E-B83E-0B510B1CE031}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreenPowerCheck", "GreenPowerCheck\GreenPowerCheck.csproj", "{5ED19DFB-9946-44A1-B9B6-1C13E35E2AA9}"
@@ -13,12 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiveServer.SDK", "Hive.SDK\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiveServer", "HiveServer\HiveServer.csproj", "{FB6DE2F8-522E-4C0C-A93F-37C0D6B259E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTester", "PluginTester\PluginTester.csproj", "{C3A3B29D-E01C-4006-B527-D9CC47B0A194}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginTester", "PluginTester\PluginTester.csproj", "{C3A3B29D-E01C-4006-B527-D9CC47B0A194}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C2631632-7456-4571-AAC1-59E27261800A}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Node.Shell", "Node.Shell\Node.Shell.csproj", "{8BE2ABAA-B865-49D9-B4CC-F255DFD1E87D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProofOfAvailability", "ProofOfAvailability\ProofOfAvailability.csproj", "{2F49EA3D-5FBC-42B6-BA75-11CCD93E6C1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E3BE9B9F-B861-4445-80AD-C822FA55B908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3BE9B9F-B861-4445-80AD-C822FA55B908}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3BE9B9F-B861-4445-80AD-C822FA55B908}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3BE9B9F-B861-4445-80AD-C822FA55B908}.Release|Any CPU.Build.0 = Release|Any CPU
 		{12B0157F-9999-4C8E-B83E-0B510B1CE031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{12B0157F-9999-4C8E-B83E-0B510B1CE031}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12B0157F-9999-4C8E-B83E-0B510B1CE031}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,6 +49,14 @@ Global
 		{C3A3B29D-E01C-4006-B527-D9CC47B0A194}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3A3B29D-E01C-4006-B527-D9CC47B0A194}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3A3B29D-E01C-4006-B527-D9CC47B0A194}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BE2ABAA-B865-49D9-B4CC-F255DFD1E87D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BE2ABAA-B865-49D9-B4CC-F255DFD1E87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BE2ABAA-B865-49D9-B4CC-F255DFD1E87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BE2ABAA-B865-49D9-B4CC-F255DFD1E87D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F49EA3D-5FBC-42B6-BA75-11CCD93E6C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F49EA3D-5FBC-42B6-BA75-11CCD93E6C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F49EA3D-5FBC-42B6-BA75-11CCD93E6C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F49EA3D-5FBC-42B6-BA75-11CCD93E6C1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

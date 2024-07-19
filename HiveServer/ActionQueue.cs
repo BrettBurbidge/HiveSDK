@@ -4,7 +4,7 @@ using HiveServer.SDK;
 
 namespace HiveServer
 {
-    
+
     /// <summary>
     /// Fake Action Queue no state management yet. 
     /// </summary>
@@ -47,6 +47,12 @@ namespace HiveServer
                 }
             }
             return null;
+        }
+
+        public static bool RemoveActionFromQueue(Guid nodeActionID)
+        {
+            _actionQueue.RemoveAt(_actionQueue.FindIndex(x => x.ActionID == nodeActionID));
+            return true;
         }
     }
 }
