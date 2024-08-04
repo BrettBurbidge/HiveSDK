@@ -9,6 +9,9 @@ using Node.SDK;
 namespace Node.Shell
 {
 
+    /// <summary>
+    /// Watches the local plugin directory of this plugin for new folders. When a new folder is found it calls over to the local plugin manager to handle initialization. 
+    /// </summary>
     public class PluginMonitorService
     {
         private readonly ILogger _logger;

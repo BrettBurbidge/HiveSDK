@@ -9,7 +9,9 @@ using static Node.Shell.LocalPluginManager;
 
 namespace Node.Shell
 {
-
+    /// <summary>
+    /// Handles events to the Pluggins when there is work to be done.
+    /// </summary>
     public class WorkEventHandler
     {
         private readonly ActionEventHandler _eventHandler;

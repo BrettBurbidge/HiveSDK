@@ -21,6 +21,7 @@ namespace Node.Shell
                             new string[] { "stop", "status", "help" }
                         )
                     );
+                    services.Configure<NodeSettings>(hostContext.Configuration.GetSection("NodeSettings"));
                     services.AddHostedService<Worker>();
                 });
     }

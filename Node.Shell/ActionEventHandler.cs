@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 namespace Node.Shell
 {
 
+    /// <summary>
+    /// Handles multi threaded events. This is used to hold and raise events when nodes have work to do. 
+    /// </summary>
     public class ActionEventHandler
     {
         private readonly Channel<NodeAction> _channel;

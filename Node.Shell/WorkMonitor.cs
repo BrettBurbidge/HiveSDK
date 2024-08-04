@@ -12,7 +12,7 @@ namespace Node.Shell
 {
 
     /// <summary>
-    /// Checks NiveServer for work to consume on the Action Queue
+    /// Checks HiveServer for work to consume on the Action Queue
     /// </summary>
     public class WorkMonitor
     {

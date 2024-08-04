@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Node.Shell
 {
-        public class LocalPluginManager
+    /// <summary>
+    /// Handles the local plugin file plugins.json to keep track of the plugins and versions that are running. 
+    /// </summary>
+    public class LocalPluginManager
     {
         public class Plugin
         {
             public string PluginName { get; set; }
             public string Version { get; set; }
+            string Description { get; }
             public DateTime LastUpdate { get; set; }
         }
 

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Node.Shell
 {
+    /// <summary>
+    /// Loads plugins from the local plugin folder and initializes new plugins when found on the server. Attempts to start the plugin and call the Initialize() method.
+    /// </summary>
     public class PluginLoader
     {
         public static List<IPlugin> Plugins { get; private set; } = new List<IPlugin>();

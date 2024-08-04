@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Options;
 using System.ComponentModel;
 
 namespace Node.Shell;
@@ -12,10 +13,11 @@ public class Worker : BackgroundService
     private readonly WorkMonitor _workMonitor;
     private readonly ConsoleWatcherService _consoleWatcher;
     private readonly IHostApplicationLifetime _appLifetime;
+    private readonly NodeSettings _nodeSettings;
 
-
-    public Worker(ILogger<Worker> logger, ConsoleWatcherService consoleWatcher, IHostApplicationLifetime appLifetime)
+    public Worker(ILogger<Worker> logger, IOptions<NodeSettings> settings, ConsoleWatcherService consoleWatcher, IHostApplicationLifetime appLifetime)
     {
+        _nodeSettings = settings.Value;
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _consoleWatcher = consoleWatcher;
         _appLifetime = appLifetime;
@@ -23,8 +25,7 @@ public class Worker : BackgroundService
         _actionEventHandler = new ActionEventHandler();
         _workEventHandler = new WorkEventHandler(logger, _actionEventHandler);
         _pluginMonitorService = new PluginMonitorService(logger, _pluginPath, _workEventHandler);
-        _workMonitor = new WorkMonitor(logger, "https://localhost:7230", _actionEventHandler);
-
+        _workMonitor = new WorkMonitor(logger, _nodeSettings.HiveServerUrl, _actionEventHandler);
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -32,6 +33,7 @@ public class Worker : BackgroundService
         //Wait for local webserver to start :-}
         await Task.Delay(6000);
 
+        //Handle user commands from the terminal
         _consoleWatcher.CommandDetected += OnCommandDetected;
 
         List<Task> tasks = new List<Task>
@@ -40,10 +42,8 @@ public class Worker : BackgroundService
             Task.Run(() => _pluginMonitorService.StartAsync(stoppingToken)),
             Task.Run(() => _workMonitor.RunAsync(stoppingToken)),
             Task.Run(() => _workEventHandler.HandleEventsAsync(stoppingToken)),
-            Task.Run(() => _workEventHandler.HandleEventsAsync(stoppingToken)),
-
-
         };
+
         //When the Plugin monitor sees a new plugin just add the new plugin to this list and keep going. 
         await PluginLoader.LoadPlugins(_logger, _pluginPath, _workEventHandler);
 
