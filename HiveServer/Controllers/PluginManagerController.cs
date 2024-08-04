@@ -5,28 +5,21 @@ namespace HiveServer.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WorkMonitorController : ControllerBase
+    public class PluginManagerController : ControllerBase
     {
         private readonly ILogger<PluginManagerController> _logger;
 
-        public WorkMonitorController(ILogger<PluginManagerController> logger)
+        public PluginManagerController(ILogger<PluginManagerController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWorkToDo")]
-        public IActionResult Get()
+        [HttpGet(Name = "CheckForNewPlugins")]
+        public IActionResult CheckForNewPlugins()
         {
             try
             {
-                var action = ActionQueue.GetActionToConsume();
-
-                if (action == null)
-                {
-                    return NotFound(); // Or return appropriate HTTP status code
-                }
-
-                return Ok(action);
+                return Ok("Check for new plugins");
             }
             catch (Exception ex)
             {

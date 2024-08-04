@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)*.*&quot; &quot;$(SolutionDir)Node.Shell\Plugins\GreenPowerCheck\&quot; /Y /I /E" />
+    <Exec Command="xcopy /S /E /C /H /R /Y &quot;$(TargetDir)*.*&quot; &quot;$(SolutionDir)Node.Shell\Plugins\GreenPowerCheck\&quot;" />
   </Target>
 
 </Project>

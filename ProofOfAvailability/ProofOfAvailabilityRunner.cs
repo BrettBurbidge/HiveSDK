@@ -63,5 +63,10 @@ namespace ProofOfAvailability
         {
             throw new NotImplementedException();
         }
+
+        public void OnShutdown(ShutdownEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

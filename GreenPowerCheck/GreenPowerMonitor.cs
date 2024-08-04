@@ -11,6 +11,8 @@ namespace GreenPowerCheck
 
         public string Version => "1.0.0";
 
+        public string Fake => "asdfdsf";
+
         private void TimerCallback(object state)
         {
           Log($"{this.Name} triggered");
@@ -37,7 +39,7 @@ namespace GreenPowerCheck
 
         public void Initialize()
         {
-            Log("Green Power Monitor starting...");
+            Log("Green Power Monitor Plugin starting...");
 
            // Timer timer = new Timer(TimerCallback, null, 0, 10000);
 
@@ -53,6 +55,11 @@ namespace GreenPowerCheck
         }
 
         public void OnWorkComplete(WorkEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnShutdown(ShutdownEventArgs e)
         {
             throw new NotImplementedException();
         }

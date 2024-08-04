@@ -30,6 +30,8 @@ public class Worker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        _logger.LogInformation("NODE STARTING.... WAITING FOR WEB SERVER");
+
         //Wait for local webserver to start :-}
         await Task.Delay(6000);
 

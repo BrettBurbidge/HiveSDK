@@ -83,6 +83,7 @@ namespace Node.Shell
         {
             try
             {
+               await Task.Delay(5000);
 
                await PluginLoader.LoadSinglePluginFromDirectory(_logger, filePath, _workEventHandler);
             } catch (Exception ex)
